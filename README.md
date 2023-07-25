@@ -1,5 +1,16 @@
 # Ultra Image Server
 
+```bash
+git clone https://github.com/bibicadotnet/docker-imgproxy-tachyon-wordpress.git
+cd docker-imgproxy
+docker-compose up -d --build --remove-orphans --force-recreate
+
+#xóa cache
+rm -rf cache/
+```
+
+ 
+
 ![www/noimage_thumb.jpg](www/noimage_thumb.jpg)
 
 🌐 A production grade on-the-fly image processing server setup using [imgproxy](https://imgproxy.net) and [Nginx caching](https://www.Nginx.com/products/Nginx/caching/).
