@@ -1,6 +1,14 @@
 # Ultra Image Server
 
 ```bash
+curl -sSL https://get.docker.com | sh
+sudo usermod -aG docker $(whoami)
+sudo systemctl start docker
+sudo systemctl enable docker
+apt install docker-compose -y
+```
+
+```bash
 git clone https://github.com/bibicadotnet/docker-imgproxy-tachyon-wordpress.git
 cd docker-imgproxy
 docker-compose up -d --build --remove-orphans --force-recreate
