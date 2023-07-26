@@ -95,6 +95,8 @@ services:
       IMGPROXY_AVIF_SPEED: 8
 
       ### Add thêm
+      IMGPROXY_ENFORCE_AVIF: "true"
+      IMGPROXY_ENFORCE_WEBP: "true"
       IMGPROXY_SET_CANONICAL_HEADER: "true"
       IMGPROXY_USE_LAST_MODIFIED: "true"
 
