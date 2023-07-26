@@ -85,7 +85,7 @@ services:
       ### compression
       IMGPROXY_STRIP_METADATA: "true"
       IMGPROXY_STRIP_COLOR_PROFILE: "true"
-      IMGPROXY_FORMAT_QUALITY: jpeg=80,webp=70,avif=50
+      IMGPROXY_FORMAT_QUALITY: jpeg=90,webp=90,avif=90
       IMGPROXY_JPEG_PROGRESSIVE: "false"
       IMGPROXY_PNG_INTERLACED: "false"
       IMGPROXY_PNG_QUANTIZATION_COLORS: 128
