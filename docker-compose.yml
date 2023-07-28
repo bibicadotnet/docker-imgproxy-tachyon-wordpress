@@ -56,15 +56,15 @@ services:
       ### https://docs.imgproxy.net/configuration
 
       ### log and debug
-      IMGPROXY_LOG_LEVEL: "warn"
+ #     IMGPROXY_LOG_LEVEL: "warn"
       IMGPROXY_ENABLE_DEBUG_HEADERS: "false"
       IMGPROXY_DEVELOPMENT_ERRORS_MODE: "false"
       IMGPROXY_REPORT_DOWNLOADING_ERRORS: "false"
 
       ### timeouts (tăng dung lượng file từ 20 MB lên 200 MB)
-      IMGPROXY_READ_TIMEOUT: 10
-      IMGPROXY_WRITE_TIMEOUT: 10
-      IMGPROXY_DOWNLOAD_TIMEOUT: 10
+      IMGPROXY_READ_TIMEOUT: 60
+      IMGPROXY_WRITE_TIMEOUT: 60
+      IMGPROXY_DOWNLOAD_TIMEOUT: 60
       IMGPROXY_KEEP_ALIVE_TIMEOUT: 300
       IMGPROXY_MAX_SRC_FILE_SIZE: 209715200 # 20MB -> 200MB
 
@@ -74,7 +74,7 @@ services:
       IMGPROXY_SO_REUSEPORT: "true"
       IMGPROXY_IGNORE_SSL_VERIFICATION: "true"
       IMGPROXY_LOCAL_FILESYSTEM_ROOT: /home
-      # IMGPROXY_SKIP_PROCESSING_FORMATS: "svg,webp,avif"
+      #IMGPROXY_SKIP_PROCESSING_FORMATS: "png,svg,webp,avif"
 
       ### presets (tắt sử dụng watermark)
       IMGPROXY_AUTO_ROTATE: "true"
@@ -83,22 +83,31 @@ services:
       IMGPROXY_PRESETS: default=resizing_type:fit/gravity:sm/strip_metadata:1
 
       ### compression
-      IMGPROXY_STRIP_METADATA: "true"
-      IMGPROXY_STRIP_COLOR_PROFILE: "true"
-      IMGPROXY_FORMAT_QUALITY: jpeg=90,webp=70,avif=70
-      IMGPROXY_JPEG_PROGRESSIVE: "false"
-      IMGPROXY_PNG_INTERLACED: "false"
-      IMGPROXY_PNG_QUANTIZATION_COLORS: 128
-      IMGPROXY_PNG_QUANTIZE: "false"
+    #  IMGPROXY_STRIP_METADATA: "true"
+    #  IMGPROXY_STRIP_COLOR_PROFILE: "true"
+    #  IMGPROXY_FORMAT_QUALITY: jpeg=80,webp=80,avif=80
+    #  IMGPROXY_JPEG_PROGRESSIVE: "false"
+    #  IMGPROXY_PNG_INTERLACED: "true"
+      IMGPROXY_PNG_QUANTIZATION_COLORS: 256
+      IMGPROXY_PNG_QUANTIZE: "true"
       IMGPROXY_MAX_ANIMATION_FRAMES: 64
-      IMGPROXY_GZIP_COMPRESSION: 0
-      IMGPROXY_AVIF_SPEED: 8
+    #  IMGPROXY_GZIP_COMPRESSION: 0
+    #  IMGPROXY_AVIF_SPEED: 9
 
       ### Add thêm
-      IMGPROXY_ENFORCE_AVIF: "true"
-      IMGPROXY_ENFORCE_WEBP: "true"
+    #  IMGPROXY_ENFORCE_AVIF: "true"
+    #  IMGPROXY_ENFORCE_WEBP: "true"
       IMGPROXY_SET_CANONICAL_HEADER: "true"
       IMGPROXY_USE_LAST_MODIFIED: "true"
+      
+      # ban PRO (không có tac dung o ban thuong)
+      IMGPROXY_WEBP_COMPRESSION: "lossless"
+      IMGPROXY_AUTOQUALITY_METHOD: "dssim"
+      IMGPROXY_AUTOQUALITY_TARGET: 0.02
+      IMGPROXY_AUTOQUALITY_ALLOWED_ERROR: 0.001
+      IMGPROXY_AUTOQUALITY_MIN: 70
+      IMGPROXY_AUTOQUALITY_MAX: 80
+
 
       ### For URL signature
       # IMGPROXY_KEY: "<your key>"
